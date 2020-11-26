@@ -16,7 +16,8 @@
           {:init-fn codes.gjl.blog.app/init}}
 
          :devtools
-         {:http-root "public"
+         {:http-root "."
+          :http-resource-root "public"
           :http-port 8080}}
 
 ;; FiX for this target https://github.com/nubank/workspaces/pull/50/files
