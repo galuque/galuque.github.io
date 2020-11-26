@@ -1,0 +1,40 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src"]
+
+ :dependencies
+ [[rum "0.12.3"]
+  [nubank/workspaces "1.0.15"]]
+
+ :builds
+ {:blog {:target :browser
+         :output-dir "public/js/main"
+         :assest-path "/js/main"
+
+         :modules
+         {:main
+          {:init-fn codes.gjl.blog.app/init}}
+
+         :devtools
+         {:http-root "public"
+          :http-port 8080}}
+
+;; FiX for this target https://github.com/nubank/workspaces/pull/50/files
+;   :cards {:target     nubank.workspaces.shadow-cljs.target
+;           :ns-regexp  "-(test|cards)$"
+;           :output-dir "resources/public/js/workspaces"
+;           :asset-path "public/js/workspaces"
+;           :preloads   [] ; optional, list namespaces to be pre loaded
+;           }
+
+  :workspaces {:target           :browser
+               :output-dir       "resources/public/js/workspaces"
+               :asset-path       "public/js/workspaces"
+
+               :devtools         {;:preloads   [fulcro.inspect.preload ] ; include for Fulcro Inspect support
+                                  :http-root          "resources/public"
+                                  :http-port          3689
+                                  :http-resource-root "."
+                                  :preloads []}
+
+               :modules          {:main {:entries [codes.gjl.workspaces.main]}}}}}
