@@ -4,6 +4,7 @@ node_modules/
 /checkouts
 /src/gen
 /resources
+/js/main/cljs-runtime/
 
 pom.xml
 pom.xml.asc
@@ -17,6 +18,7 @@ pom.xml.asc
 .DS_Store
 .vscode
 .calva
+.lsp
 
 .hgignore
 .hg/
