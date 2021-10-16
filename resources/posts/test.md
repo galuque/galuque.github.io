@@ -18,7 +18,7 @@ Check this out later.[^samplefoot]
 
 Now a code block:
 
-```clojure
+```language-clojure
 (def my-var 1)
 ...
 (println "hi")

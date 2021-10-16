@@ -41,12 +41,13 @@
        (spit "docs/posts/index.html")))
 
 (defn create-individual-posts [posts]
-  (for [post posts
-        :let [filename (-> post :metadata :filename first)]]
-    (->> (tmpl/render-file "templates/content.html" {:content (:html post)})
-         (assoc {} :main)
-         (tmpl/render-file "templates/index.html")
-         (spit (str "docs/posts/" filename)))))
+  (doall
+   (for [post posts
+         :let [filename (-> post :metadata :filename first)]]
+     (->> (tmpl/render-file "templates/content.html" {:content (:html post)})
+          (assoc {} :main)
+          (tmpl/render-file "templates/index.html")
+          (spit (str "docs/posts/" filename))))))
 
 (defn create-site! [_args]
   (println "Rendering site...")
