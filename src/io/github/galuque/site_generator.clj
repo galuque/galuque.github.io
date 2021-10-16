@@ -32,13 +32,13 @@
 
 (defn create-index []
     (->> (tmpl/render-file "templates/index.html" {})
-         (spit "public/index.html")))
+         (spit "docs/index.html")))
 
 (defn create-posts-index [posts]
   (->> (tmpl/render-file "templates/posts.html" {:posts posts})
        (assoc {} :main)
        (tmpl/render-file "templates/index.html")
-       (spit "public/posts/index.html")))
+       (spit "docs/posts/index.html")))
 
 (defn create-individual-posts [posts]
   (for [post posts
@@ -46,7 +46,7 @@
     (->> (tmpl/render-file "templates/content.html" {:content (:html post)})
          (assoc {} :main)
          (tmpl/render-file "templates/index.html")
-         (spit (str "public/posts/" filename)))))
+         (spit (str "docs/posts/" filename)))))
 
 (defn create-site! [_args]
   (println "Rendering site...")
