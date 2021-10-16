@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Karla', sans-serif;
 }
 
 .container {
@@ -16,6 +17,7 @@
     position: sticky;
     margin-top: 3rem;
     margin-left: 2rem;
+    font-size: large;
 }
 
 a {
@@ -26,6 +28,7 @@ main {
     box-sizing: border-box;
     display: inline-block;
     padding: 3rem;
+    font-size: medium;
 }
 
 main p {
