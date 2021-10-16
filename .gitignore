@@ -3,8 +3,7 @@ node_modules/
 /target
 /checkouts
 /src/gen
-/resources
-/js/main/cljs-runtime/
+cljs-runtime/
 
 pom.xml
 pom.xml.asc
@@ -19,6 +18,8 @@ pom.xml.asc
 .vscode
 .calva
 .lsp
+.cpcache
+.clj-kondo
 
 .hgignore
 .hg/
