@@ -1,0 +1,12 @@
+{:paths
+ ["src" "resources"]
+
+ :deps
+ {org.clojure/clojure {:mvn/version "1.11.0-alpha2"}
+  markdown-clj/markdown-clj {:mvn/version "1.10.6"}
+  selmer/selmer {:mvn/version "1.12.44"}}
+ 
+ :aliases
+ {:create-site!
+  {:exec-fn io.github.galuque.site-generator/create-site!
+   :exec-args {}}}}

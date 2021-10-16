@@ -1,0 +1,5 @@
+{% safe %}
+{% for post in posts %}
+<div><a href={{post.metadata.filename.0}}> {{post.metadata.title.0}}</a></div>
+{% endfor %}
+{% endsafe %}
