@@ -28,7 +28,8 @@
 (def posts 
   (->> posts-paths
        (map md->html)
-       (sort-by #(-> % :metadata :date))))
+       (sort-by #(-> % :metadata :date))
+       reverse))
 
 (defn create-index []
     (->> (tmpl/render-file "templates/index.html" {})
