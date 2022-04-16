@@ -9,11 +9,6 @@
         <link href="/css/styles.css" rel="stylesheet" type="text/css">
         <link rel="icon" href="/img/favicon.ico">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/base16/github.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/languages/clojure.min.js"></script>
-        <script>hljs.highlightAll();</script>
-
         <style>@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap');</style>    
 
         <title>Gabriel Luque</title>
@@ -27,17 +22,30 @@
             </div>
             <br>
             <div class="sidebar-element">
+                <a href="/">Home</a>
+            </div>
+            <div class="sidebar-element">
                 <a href="/posts/">Posts</a>
             </div>
-             <div class="sidebar-element">
+            <!-- <div class="sidebar-element">
                 <a href="/projects/">Projects</a>
-            </div>
+            </div> -->
         </div>
-        <main>
         {% safe %}
-        {{main}}
+        {% if main %}
+        <main>
+            {{main}}
+        </main>
+        {%else %}
+        <main>
+            Welcome!
+        </main>
+        {% endif %}
         {% endsafe %}
-        <main>  
-    </div>   
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/base16/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/languages/clojure.min.js"></script>
+    <script>hljs.highlightAll();</script>
     </body>
 </html>

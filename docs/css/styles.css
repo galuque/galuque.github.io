@@ -5,7 +5,7 @@
 }
 
 .container {
-    margin: auto auto 2rem;
+    margin: auto 10rem 2rem;
     display: flex;
     position: relative;
     box-sizing: border-box;
@@ -17,7 +17,7 @@
     position: sticky;
     margin-top: 3rem;
     margin-left: 2rem;
-    font-size: large;
+    font-size: x-large;
 }
 
 a {
@@ -27,8 +27,8 @@ a {
 main {
     box-sizing: border-box;
     display: inline-block;
-    padding: 3rem;
-    font-size: medium;
+    padding: 3rem 10rem;
+    font-size: x-large;
 }
 
 main p {

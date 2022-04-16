@@ -2,9 +2,9 @@
  ["src" "resources"]
 
  :deps
- {org.clojure/clojure {:mvn/version "1.11.0-alpha2"}
-  markdown-clj/markdown-clj {:mvn/version "1.10.6"}
-  selmer/selmer {:mvn/version "1.12.44"}}
+ {org.clojure/clojure {:mvn/version "1.11.1"}
+  markdown-clj/markdown-clj {:mvn/version "1.11.0"}
+  selmer/selmer {:mvn/version "1.12.50"}}
  
  :aliases
  {:create-site!
