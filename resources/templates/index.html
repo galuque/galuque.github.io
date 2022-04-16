@@ -22,17 +22,26 @@
             </div>
             <br>
             <div class="sidebar-element">
+                <a href="/">Home</a>
+            </div>
+            <div class="sidebar-element">
                 <a href="/posts/">Posts</a>
             </div>
-             <div class="sidebar-element">
+            <!-- <div class="sidebar-element">
                 <a href="/projects/">Projects</a>
-            </div>
+            </div> -->
         </div>
-        <main>
         {% safe %}
-        {{main}}
+        {% if main %}
+        <main>
+            {{main}}
+        </main>
+        {%else %}
+        <main>
+            Welcome!
+        </main>
+        {% endif %}
         {% endsafe %}
-        <main>  
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/base16/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
