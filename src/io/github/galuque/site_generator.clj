@@ -1,7 +1,10 @@
 (ns io.github.galuque.site-generator
-  (:require [markdown.core :as md]
-            [clojure.java.io :as io]
-            [selmer.parser :as tmpl]))
+  (:require [clojure.java.io :as io]
+            [markdown.core :as md]
+            [selmer.parser :as tmpl])
+  (:import [java.text SimpleDateFormat]))
+
+(set! *warn-on-reflection* true)
 
 (defn path [^java.io.File file]
   (.getPath file))
@@ -12,10 +15,11 @@
 (def posts-path "resources/posts/")
 
 
-(def posts-paths (->> posts-path
-                      io/file
-                      list-files
-                      (map path)))
+(defn posts-paths []
+  (->> posts-path
+       io/file
+       list-files
+       (map path)))
 
 (defn md->html
   [filename]
@@ -25,15 +29,19 @@
        :reference-links? true
        :footnotes? true)))
 
-(def posts 
-  (->> posts-paths
+(defn parse-date [s]
+  (let [parser (SimpleDateFormat. "yyyy-MM-dd")]
+    (.parse parser s)))
+
+(defn posts []
+  (->> (posts-paths)
        (map md->html)
-       (sort-by #(-> % :metadata :date))
-       reverse))
+       (sort-by #(-> % :metadata :date first parse-date)
+                #(compare %2 %1))))
 
 (defn create-index []
-    (->> (tmpl/render-file "templates/index.html" {})
-         (spit "docs/index.html")))
+  (->> (tmpl/render-file "templates/index.html" {})
+       (spit "docs/index.html")))
 
 (defn create-posts-index [posts]
   (->> (tmpl/render-file "templates/posts.html" {:posts posts})
@@ -53,13 +61,12 @@
 (defn create-site! [_args]
   (println "Rendering site...")
   (create-index)
-  (create-posts-index posts)
-  (create-individual-posts posts)
+  (create-posts-index (posts))
+  (create-individual-posts (posts))
   ;; TODO: create projects index
   (println "Site rendered!"))
 
 (comment
 
   (create-site! {})
-
   )
