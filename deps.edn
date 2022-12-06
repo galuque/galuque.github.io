@@ -7,6 +7,6 @@
   selmer/selmer {:mvn/version "1.12.55"}}
  
  :aliases
- {:create-site!
-  {:exec-fn io.github.galuque.site-generator/create-site!
+ {:render!
+  {:exec-fn io.github.galuque.site-generator/render!
    :exec-args {}}}}

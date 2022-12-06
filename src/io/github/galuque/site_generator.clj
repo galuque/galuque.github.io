@@ -13,6 +13,7 @@
   (.listFiles dir))
 
 (def posts-path "resources/posts/")
+(def about "resources/about.md")
 
 
 (defn posts-paths []
@@ -43,6 +44,13 @@
   (->> (tmpl/render-file "templates/index.html" {})
        (spit "docs/index.html")))
 
+(defn create-about []
+  (let [about-me (md->html about)]
+    (->> (tmpl/render-file "templates/content.html" {:content (:html about-me)})
+         (assoc {} :main)
+         (tmpl/render-file "templates/index.html")
+         (spit "docs/about/index.html"))))
+
 (defn create-posts-index [posts]
   (->> (tmpl/render-file "templates/posts.html" {:posts posts})
        (assoc {} :main)
@@ -58,15 +66,15 @@
           (tmpl/render-file "templates/index.html")
           (spit (str "docs/posts/" filename))))))
 
-(defn create-site! [_args]
+(defn render! [& _args]
   (println "Rendering site...")
   (create-index)
+  (create-about)
   (create-posts-index (posts))
   (create-individual-posts (posts))
   ;; TODO: create projects index
   (println "Site rendered!"))
 
 (comment
-
-  (create-site! {})
+  (render!)
   )
