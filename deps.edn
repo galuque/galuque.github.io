@@ -3,8 +3,8 @@
 
  :deps
  {org.clojure/clojure {:mvn/version "1.11.1"}
-  markdown-clj/markdown-clj {:mvn/version "1.11.2"}
-  selmer/selmer {:mvn/version "1.12.53"}}
+  markdown-clj/markdown-clj {:mvn/version "1.11.4"}
+  selmer/selmer {:mvn/version "1.12.55"}}
  
  :aliases
  {:create-site!

@@ -5,7 +5,7 @@
 }
 
 .container {
-    margin: auto 10rem 2rem;
+    margin: auto;
     display: flex;
     position: relative;
     box-sizing: border-box;
@@ -20,6 +20,10 @@
     font-size: x-large;
 }
 
+.sidebar-p {
+    text-align: end;
+}
+
 a {
     color:black;
 }
@@ -27,7 +31,7 @@ a {
 main {
     box-sizing: border-box;
     display: inline-block;
-    padding: 3rem 10rem;
+    padding: 3rem;
     font-size: x-large;
 }
 
