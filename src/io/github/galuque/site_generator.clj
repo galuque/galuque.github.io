@@ -15,7 +15,6 @@
 (def posts-path "resources/posts/")
 (def about "resources/about.md")
 
-
 (defn posts-paths []
   (->> posts-path
        io/file
